@@ -1,0 +1,20 @@
+{
+  "name": "@app/docs",
+  "version": "0.1.0",
+  "private": true,
+  "author": {
+    "name": "Luc Duong",
+    "email": "luc@ltv.vn"
+  },
+  "scripts": {
+    "serve": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.3.0",
+    "cz-conventional-changelog": "^3.1.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "vuepress": "^1.3.0"
+  },
+  "license": "private"
+}

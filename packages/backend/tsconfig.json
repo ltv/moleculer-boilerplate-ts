@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "target": "es6",
+    "allowJs": true,
+    "rootDir": "./",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "utils/*": ["utils/*"],
+      "mixins/*": ["mixins/*"],
+      "services/*": ["services/*"],
+      "tests/*": ["tests/*"]
+    },
+    "typeRoots": ["node_modules/@types", "node_modules/@app/types"],
+    "lib": [
+      "es5",
+      "es6",
+      "es2015.core",
+      "es2015.collection",
+      "es2015.generator",
+      "es2015.iterable",
+      "es2015.promise",
+      "es2015.proxy",
+      "es2015.reflect",
+      "es2015.symbol",
+      "es2015.symbol.wellknown",
+      "esnext.asynciterable"
+    ]
+  },
+  "exclude": ["**/*.test.ts", "dist/**"]
+}

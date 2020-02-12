@@ -1,0 +1,52 @@
+{
+  "name": "@app/backend",
+  "version": "0.1.0",
+  "description": "Moleculer Boilerplate Backend",
+  "main": "index.js",
+  "author": "Luc <luc@ltv.vn>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "export NODE_PATH=./ && node -r ./register/graphql -r ts-node/register node_modules/.bin/moleculer-runner --hot --repl --envfile=.env.development services --mask **/*.service.ts --config moleculer.config.ts",
+    "start:prod": "moleculer-runner --env services --mask **/*.service.js --config moleculer.config.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "graphql": "^14.6.0",
+    "hashids": "^2.2.1",
+    "helmet": "^3.21.2",
+    "i18next": "^19.1.0",
+    "i18next-node-fs-backend": "^2.1.3",
+    "ioredis": "^4.14.1",
+    "knex": "^0.20.9",
+    "lodash.defaultsdeep": "^4.6.1",
+    "lodash.isstring": "^4.0.1",
+    "lodash.pick": "^4.4.0",
+    "moleculer": "^0.14.0-rc2",
+    "moleculer-web": "^0.9.0-rc1",
+    "nats": "^1.4.0",
+    "pg": "^7.18.1"
+  },
+  "devDependencies": {
+    "@app/models": "*",
+    "@app/types": "*",
+    "@ltv/moleculer-apollo-server": "^0.1.25",
+    "@ltv/moleculer-decorators": "^1.0.20",
+    "@types/helmet": "^0.0.45",
+    "@types/i18next-node-fs-backend": "^2.1.0",
+    "@types/lodash.defaultsdeep": "^4.6.6",
+    "@types/lodash.isstring": "^4.0.6",
+    "@types/lodash.pick": "^4.4.6",
+    "@types/node": "^13.7.1",
+    "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
+    "moleculer-repl": "^0.6.2",
+    "nodemon": "^2.0.2",
+    "ts-jest": "^25.2.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}
