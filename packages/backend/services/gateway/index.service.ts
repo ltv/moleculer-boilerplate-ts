@@ -19,12 +19,6 @@ const ApiGateway: ServiceSchema = {
     port: +process.env.APP_PORT || 3000,
     // http2: true,
 
-    gateway: {},
-
-    cors: {
-      origin: '*'
-    },
-
     use: [
       helmet(), //
       enhanceResJson,

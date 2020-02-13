@@ -1,4 +1,4 @@
-import { Service } from '@ltv/moleculer-decorators';
+import { Service } from 'moleculer-decorators';
 
 import { BaseService } from 'utils/BaseService';
 import { SERVICE_USER } from 'utils/constants';

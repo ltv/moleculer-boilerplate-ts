@@ -19,7 +19,7 @@
     "scope": "typescript",
     "prefix": "NewService",
     "body": [
-      "import { Service } from '@ltv/moleculer-decorators';",
+      "import { Service } from 'moleculer-decorators';",
       "",
       "import { BaseService } from 'utils/BaseService';",
       "",
@@ -39,7 +39,7 @@
     "scope": "typescript",
     "prefix": "NewServiceGraphQL",
     "body": [
-      "import { Service } from '@ltv/moleculer-decorators';",
+      "import { Service } from 'moleculer-decorators';",
       "",
       "import { BaseService } from 'utils/BaseService';",
       "import { GraphQLMixin } from 'mixins/graphql.mixin';",
@@ -67,7 +67,7 @@
     "scope": "typescript",
     "prefix": "NewServiceGraphQLAndDB",
     "body": [
-      "import { Service } from '@ltv/moleculer-decorators';",
+      "import { Service } from 'moleculer-decorators';",
       "",
       "import { BaseService } from 'utils/BaseService';",
       "import { KnexDBMixin } from 'mixins/knexdb.mixin';",
@@ -101,7 +101,7 @@
     "scope": "typescript",
     "prefix": "NewServiceDB",
     "body": [
-      "import { Service } from '@ltv/moleculer-decorators';",
+      "import { Service } from 'moleculer-decorators';",
       "",
       "import { BaseService } from 'utils/BaseService';",
       "import { KnexDBMixin } from 'mixins/knexdb.mixin';",

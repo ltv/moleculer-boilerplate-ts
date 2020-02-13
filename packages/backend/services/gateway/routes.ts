@@ -1,4 +1,4 @@
-import { ServiceRouteOptions } from '@ltv/moleculer-apollo-server';
+import { ServiceRouteOptions } from 'moleculer-apollo-server';
 
 export const routes: ServiceRouteOptions[] = [
   {

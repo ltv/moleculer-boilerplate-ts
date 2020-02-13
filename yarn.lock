@@ -829,26 +829,6 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@hapi/accept@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@hapi/accept/-/accept-5.0.0.tgz#b0e06dd57351ff0724172af6e5d22a4e74d99ead"
-  integrity sha512-LMz1AkD9kzmbXWNw5s+aQg0Yp9WQDXOSD0G4ke3cJ/S5H+qyUIy224/hVng1L8zn9H1cEpofyd3gh+XCrwGvYg==
-  dependencies:
-    "@hapi/boom" "9.x.x"
-    "@hapi/hoek" "9.x.x"
-
-"@hapi/boom@9.x.x":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-9.0.0.tgz#28f9e77ecf2dea1fe3a8982b9d8827aa5137e33a"
-  integrity sha512-D+Or4yahLq3L7D1Jf0fR1+Lgr+HPK1lej8tc6hS/fBLmK66XdpvTyKv8YUR5ls1GeQy+KGtbpKAs+ZxyzNtUyA==
-  dependencies:
-    "@hapi/hoek" "9.x.x"
-
-"@hapi/hoek@9.x.x":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.0.3.tgz#e49e637d5de8faa4f0d313c2590b455d7c00afd7"
-  integrity sha512-jKtjLLDiH95b002sJVc5c74PE6KKYftuyVdVmsuYId5stTaWcRFqE+5ukZI4gDUKjGn8wv2C3zPn3/nyjEI7gg==
-
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.0.0.tgz#10602de5570baea82f8afbfa2630b24e7a8cfe5b"
@@ -1708,29 +1688,6 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@ltv/moleculer-apollo-server@^0.1.25":
-  version "0.1.25"
-  resolved "https://registry.yarnpkg.com/@ltv/moleculer-apollo-server/-/moleculer-apollo-server-0.1.25.tgz#217422a6ec7e5c61c1e9f300562c2cb1b0983e77"
-  integrity sha512-cJIcBZAtX1XpT++vLTvWneKe9dVnlc4ytgqZpKY9W2dVm3A8iPBmiLC9Ym2iWtC/fMPXYLSZ+ejxfQxcp6IyDg==
-  dependencies:
-    "@apollographql/graphql-playground-html" "^1.6.24"
-    "@hapi/accept" "^5.0.0"
-    "@types/body-parser" "^1.17.1"
-    apollo-server-core "^2.9.16"
-    dataloader "^2.0.0"
-    graphql-subscriptions "^1.1.0"
-    graphql-tools "^4.0.6"
-    graphql-upload "^10.0.0"
-    lodash "^4.17.15"
-    object-hash "^2.0.1"
-
-"@ltv/moleculer-decorators@^1.0.20":
-  version "1.0.20"
-  resolved "https://registry.yarnpkg.com/@ltv/moleculer-decorators/-/moleculer-decorators-1.0.20.tgz#3b447253ba0a79ad6942b3973291db06f52c9f32"
-  integrity sha512-ul6vqlspKqY3Nb9HXpD8mK5Z3FlHlu5Qp8kb/AMNs0n2IdC9T/B8A4witRTA2kU1dG4X/o7L7hdRR0A0k0FYag==
-  dependencies:
-    moleculer "^0.14.0-rc2"
-
 "@moleculer/vorpal@^1.11.5":
   version "1.11.5"
   resolved "https://registry.yarnpkg.com/@moleculer/vorpal/-/vorpal-1.11.5.tgz#542f030e33b64afcf316c35e492fc3b9fca407af"
@@ -1966,7 +1923,7 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/body-parser@*", "@types/body-parser@^1.17.1":
+"@types/body-parser@*":
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.0.tgz#0685b3c47eb3006ffed117cdd55164b61f80538f"
   integrity sha512-W98JrE0j2K78swW4ukqMleo8R7h/pFETjM2DQ90MF6XK2i4LO4W3gQ71Lt4w3bfm2EvVSyWHplECvB5sK22yFQ==
@@ -2635,6 +2592,14 @@ abbrev@1:
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
 
+accept@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/accept/-/accept-3.1.3.tgz#29c3e2b3a8f4eedbc2b690e472b9ebbdc7385e87"
+  integrity sha512-OgOEAidVEOKPup+Gv2+2wdH2AgVKI9LxsJ4hicdJ6cY0faUuZdZoi56kkXWlHp9qicN1nWQLmW5ZRGk+SBS5xg==
+  dependencies:
+    boom "7.x.x"
+    hoek "6.x.x"
+
 accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.7.tgz#531bc726517a3b2b41f850021c6cc15eaab507cd"
@@ -2907,7 +2872,7 @@ apollo-server-caching@^0.5.1:
   dependencies:
     lru-cache "^5.0.0"
 
-apollo-server-core@^2.9.16:
+apollo-server-core@^2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-2.10.0.tgz#b8d51bdffe6529f0e3ca670ee8f1238765cfade4"
   integrity sha512-x/UK6XvU307W8D/pzTclU04JIjRarcbg5mFPe0nVmO4OTc26uQgKi1WlZkcewXsAUnn+nDwKVn2c2G3dHEgXzQ==
@@ -3410,6 +3375,13 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
+
+boom@7.x.x:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/boom/-/boom-7.3.0.tgz#733a6d956d33b0b1999da3fe6c12996950d017b9"
+  integrity sha512-Swpoyi2t5+GhOEGw8rEsKvTxFLIDiiKoUc2gsoV6Lyr43LHBIzch3k2MvYUs8RTROrIkVJ3Al0TkaOGjnb+B6A==
+  dependencies:
+    hoek "6.x.x"
 
 bowser@^2.7.0:
   version "2.9.0"
@@ -5873,7 +5845,7 @@ fast-levenshtein@~2.0.6:
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
-fastest-validator@^1.0.0:
+fastest-validator@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/fastest-validator/-/fastest-validator-1.0.2.tgz#a8a70419f300f6acd6caa92ba1ecdaec21998bc4"
   integrity sha512-z78lotQ6NEeIh9sps3vh3qWfhuyWSDTwR3yQTqzKLfrYj3oZYquOuhudMuTwePhvdfcfZLVz2TkVs+HQtZ24+g==
@@ -6790,6 +6762,11 @@ hmac-drbg@^1.0.0:
     hash.js "^1.0.3"
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
+
+hoek@6.x.x:
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-6.1.3.tgz#73b7d33952e01fe27a38b0457294b79dd8da242c"
+  integrity sha512-YXXAAhmF9zpQbC7LEcREFtXfGq5K1fmd+4PHkBq8NUqmzW3G+Dq10bI/i0KucLRwss3YYFQ0fSfoxBZYiGUqtQ==
 
 hogan.js@^3.0.2:
   version "3.0.2"
@@ -9228,6 +9205,28 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
+moleculer-apollo-server@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/moleculer-apollo-server/-/moleculer-apollo-server-0.2.0.tgz#3e3397d31e887afde18c848b6093126d96a362f1"
+  integrity sha512-Z/1TLzMACSDk9C0Q11GaOs/eU6fP/nY77LJQ9iM6H6cxN7UC82IMfHCNe8IoYGM7HwXQASL3nS5jP+c/j2Z7jg==
+  dependencies:
+    "@apollographql/graphql-playground-html" "^1.6.24"
+    accept "^3.1.3"
+    apollo-server-core "^2.10.0"
+    dataloader "^2.0.0"
+    graphql-subscriptions "^1.1.0"
+    graphql-tools "^4.0.6"
+    graphql-upload "^10.0.0"
+    lodash "^4.17.15"
+    object-hash "^2.0.2"
+
+moleculer-decorators@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/moleculer-decorators/-/moleculer-decorators-1.2.0.tgz#8c1832f4a22097cce9b44e71c8eefcc501541ada"
+  integrity sha512-xgkwRgLVRL/T6gvTwRA/V0TQyZoro+WE0Mo1JL2Ro2ybgtnglRY0pUhmXbFvG7dBWQLRitrnhSUPTyPnaPdcrw==
+  dependencies:
+    moleculer "^0.14.0"
+
 moleculer-repl@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/moleculer-repl/-/moleculer-repl-0.6.2.tgz#5f2d462d54f360b99fbe005c538fb497a8523bd0"
@@ -9244,10 +9243,10 @@ moleculer-repl@^0.6.2:
     table "^5.4.6"
     tiny-human-time "^1.2.0"
 
-moleculer-web@^0.9.0-rc1:
-  version "0.9.0-rc1"
-  resolved "https://registry.yarnpkg.com/moleculer-web/-/moleculer-web-0.9.0-rc1.tgz#9e81a41ea27e18a3c40a998a0c596d07a6e832a4"
-  integrity sha512-ql2E8wQdvD+itA91SgyeDpXXqMwxtNkrqImRKqYJrT/NdEeSPV3NgjHLoedP8Mhan30sUi70jmizY//529sQnA==
+moleculer-web@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/moleculer-web/-/moleculer-web-0.9.0.tgz#7884ab4ff5b925f1979198de7452e85269849576"
+  integrity sha512-L7lzYXjy+k9UuBlNRnoRHoT6nDRXqYm2aox7AjGw0PE8O+cECP/77ALirjUMKyEsNbtHO29iS0O52L3juSbTNQ==
   dependencies:
     body-parser "^1.19.0"
     busboy "^0.3.1"
@@ -9261,15 +9260,15 @@ moleculer-web@^0.9.0-rc1:
     qs "^6.9.1"
     serve-static "^1.14.1"
 
-moleculer@^0.14.0-rc2:
-  version "0.14.0-rc2"
-  resolved "https://registry.yarnpkg.com/moleculer/-/moleculer-0.14.0-rc2.tgz#e014c36f464c1eb9d4a13cf55755a7cabf2b7631"
-  integrity sha512-4R2NMjYXhVcOE+OIl8SGEWWXwCDx2g9q1oIVri2jWmDmYWklhIKCP+P9OUK7qXXA9KVT2ksgv5iD8p+mP+vJhg==
+moleculer@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/moleculer/-/moleculer-0.14.0.tgz#719fa3adac984b8d5f62ed08844ea437b601e558"
+  integrity sha512-fr9SfNcHLatVS6ceEBabKvshIKvXyAHzsQiL2QSw+QJ2daWAFqGNKBqVIfORq1GW2LdN1cI7vd9KIVAhikoYIA==
   dependencies:
     args "^5.0.1"
     es6-error "^4.1.1"
     eventemitter2 "^6.0.0"
-    fastest-validator "^1.0.0"
+    fastest-validator "^1.0.2"
     fn-args "^5.0.0"
     glob "^7.1.6"
     ipaddr.js "^1.9.1"
@@ -9735,7 +9734,7 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-hash@^2.0.1:
+object-hash@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-2.0.2.tgz#f7b2212dbe07d07e340ccd6004c59504fc4015cf"
   integrity sha512-b+2AKjAf6uQlxxv8ChHdM+VT4eeX+ZSwv+pk2xIXZWbo+yxn4/En1iC+GHe/OFYa9on0AhFF2PvuAcFHoiiHaA==

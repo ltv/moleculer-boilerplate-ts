@@ -1,7 +1,7 @@
 import os from 'os';
 import { BrokerOptions, Errors, TracerOptions, LoggerConfig } from 'moleculer';
 import { CreateHealthCheckMiddleware } from './middlewares';
-import { ActionOptions } from '@ltv/moleculer-decorators';
+import { ActionOptions } from 'moleculer-decorators';
 
 const nodeIDPrefix = process.env.NODE_ID || '';
 const osHostName = os.hostname().toLowerCase();

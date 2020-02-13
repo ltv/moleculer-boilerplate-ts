@@ -1,6 +1,6 @@
 import isString from 'lodash.isstring';
 import { Kind } from 'graphql';
-import { ApolloService } from '@ltv/moleculer-apollo-server';
+import { ApolloService } from 'moleculer-apollo-server';
 import { isProd } from 'utils/environment';
 
 export const ApolloMixin = ApolloService({
