@@ -1,0 +1,53 @@
+version: "3.6"
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_DATA_DIR=/data/db
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - app
+
+  nats:
+    image: nats:1.3.0-linux
+    container_name: nats
+    restart: always
+    ports:
+      - 4222:4222
+      - 4444:4444
+      - 6222:6222
+      - 8222:8222
+    networks:
+      - app
+
+  redis:
+    image: redis:5-alpine
+    container_name: redis5
+    hostname: redis5
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      - app
+
+  redis-commander:
+    image: rediscommander/redis-commander
+    container_name: redis-commander
+    hostname: redis-commander
+    restart: always
+    ports:
+      - 6380:8081
+    networks:
+      - app
+    environment:
+      REDIS_HOSTS: local:redis5:6379
+
+volumes:
+  mongodb:
+
+networks:
+  app:
+    external: true

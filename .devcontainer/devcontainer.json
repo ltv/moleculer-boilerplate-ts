@@ -1,0 +1,95 @@
+{
+  "name": "App Dev Container",
+
+  "forwardPorts": [3000, 6380],
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "workbench.iconTheme": "material-icon-theme",
+    "files.insertFinalNewline": true,
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 2,
+    "editor.fontFamily": "MesloLGS NF",
+    "workbench.colorTheme": "Night Owl",
+    "gitlens.advanced.messages": {
+      "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.defaultDateFormat": "dddd, MMMM Do YYYY, h:mm:ss a",
+    "gitlens.historyExplorer.enabled": false,
+    "window.zoomLevel": 1,
+    "prettier.singleQuote": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.rendererType": "dom",
+    "vetur.format.defaultFormatter.css": "prettier",
+    "vetur.format.defaultFormatter.postcss": "prettier",
+    "vetur.format.defaultFormatter.scss": "prettier",
+    "vetur.format.defaultFormatter.less": "prettier",
+    "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
+    "vetur.format.defaultFormatter.js": "prettier",
+    "vetur.format.defaultFormatter.ts": "prettier",
+    "material-icon-theme.activeIconPack": "react",
+    "editor.formatOnSave": true,
+    "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "docker.groupImagesBy": "RepositoryName",
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[dockerfile]": {
+      "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+      "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  },
+
+  "postCreateCommand": "/bin/bash ./.devcontainer/scripts/install-dev-tools.sh > ~/post-create.log",
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "eamodio.gitlens",
+    "sdras.night-owl",
+    "aaron-bond.better-comments",
+    "ms-azuretools.vscode-docker",
+    "msjsdiag.debugger-for-chrome",
+    "coenraads.bracket-pair-colorizer",
+    "mikestead.dotenv",
+    "donjayamanne.githistory",
+    "prisma.vscode-graphql",
+    "wix.vscode-import-cost",
+    "yzhang.markdown-all-in-one",
+    "DavidAnson.vscode-markdownlint",
+    "pkief.material-icon-theme",
+    "whizkydee.material-palenight-theme",
+    "esbenp.prettier-vscode",
+    "foxundermoon.shell-format",
+    "prisma.prisma",
+    "wayou.vscode-todo-highlight",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "octref.vetur",
+    "hollowtree.vue-snippets",
+    "redhat.vscode-yaml",
+    "codezombiech.gitignore",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "joelday.docthis",
+    "robinbentley.sass-indented",
+    "hashicorp.terraform",
+    "vscoss.vscode-ansible"
+  ]
+}
