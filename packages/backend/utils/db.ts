@@ -1,48 +1,31 @@
-// import { PoolConfig } from 'pg';
-import Knex, { ConnectionConfig } from 'knex';
+import { Pool, PoolConfig } from 'pg';
 
-let knexInstance: Knex;
+let poolInstance: Pool;
 
-export function getKnexDbConfigs(): Knex.Config {
+export function getConnectionConfig(): PoolConfig {
   const {
-    DATABASE_USER,
-    DATABASE_PASS,
-    DATABASE_HOST,
-    DATABASE_PORT,
-    DATABASE_NAME,
-    DATABASE_SSL,
-    DATABASE_POOL_MIN,
-    DATABASE_POOL_MAX
+    DATABASE_USER: user,
+    DATABASE_PASS: password,
+    DATABASE_HOST: host,
+    DATABASE_PORT: port,
+    DATABASE_NAME: database,
+    DATABASE_SSL: ssl
   } = process.env;
 
-  const connection: ConnectionConfig = {
-    host: DATABASE_HOST,
-    port: DATABASE_PORT,
-    database: DATABASE_NAME,
-    user: DATABASE_USER,
-    password: DATABASE_PASS,
-    ssl: DATABASE_SSL
-  } as any;
-
-  let min = 0;
-  let max = 1;
-  try {
-    min = parseInt(DATABASE_POOL_MIN);
-    max = parseInt(DATABASE_POOL_MAX);
-  } catch (e) {}
-
-  const configs = {
-    client: 'postgresql',
-    connection,
-    pool: { min, max }
+  return {
+    host,
+    database,
+    user,
+    password,
+    port: +port,
+    ssl: !!ssl
   };
-  return configs;
 }
 
-export function createKnexInstance(): Knex {
-  const configs = getKnexDbConfigs();
-  if (!knexInstance) {
-    knexInstance = Knex(configs);
+export function createPGPoolInstance(): Pool {
+  const cConfig = getConnectionConfig();
+  if (!poolInstance) {
+    poolInstance = new Pool(cConfig);
   }
-  return knexInstance;
+  return poolInstance;
 }

@@ -1,17 +1,17 @@
+import { CreateHealthCheckMiddleware, FindEntityMiddleware } from '@ltv/moleculer-core';
+import { BrokerOptions, Errors, LoggerConfig, TracerOptions } from 'moleculer';
 import os from 'os';
-import { BrokerOptions, Errors, TracerOptions, LoggerConfig } from 'moleculer';
-import { CreateHealthCheckMiddleware } from './middlewares';
-import { ActionOptions } from 'moleculer-decorators';
 
-const nodeIDPrefix = process.env.NODE_ID || '';
+const nodeIDPrefix = ((nodeID: string) => {
+  if (!nodeID) {
+    return '';
+  }
+  return `-${nodeID}`;
+})(process.env.NODE_ID);
 const osHostName = os.hostname().toLowerCase();
 
 // HeathCheck (S)
-const {
-  HEALTH_CHECK_READINESS_PATH,
-  HEALTH_CHECK_LIVENESS_PATH,
-  HEALTH_CHECK_PORT
-} = process.env;
+const { HEALTH_CHECK_READINESS_PATH, HEALTH_CHECK_LIVENESS_PATH, HEALTH_CHECK_PORT } = process.env;
 const healthCheckOpts = {
   port: +HEALTH_CHECK_PORT || 3001,
   readiness: {
@@ -60,7 +60,7 @@ const cacher: any = {
   type: 'Redis',
   options: {
     // Prefix for keys
-    prefix: 'MBT',
+    prefix: process.env.REDIS_PREFIX || 'AUTH',
     // set Time-to-live to 30sec.
     ttl: 30
   }
@@ -119,8 +119,7 @@ const tracing: TracerOptions = TRACING_TYPE
   ? {
       enabled: true,
       exporter: {
-        // type: 'Console',
-        type: TRACING_TYPE || 'console',
+        type: TRACING_TYPE || 'Console',
         options: tracingOpts
       },
       stackTrace: true
@@ -133,14 +132,18 @@ const { LOGGER_TYPE, LOGGER_LEVEL } = process.env;
 const logger: LoggerConfig = {
   type: LOGGER_TYPE || 'Console',
   options: {
-    level: LOGGER_LEVEL || 'info'
+    level: LOGGER_LEVEL || 'info',
+    moduleColors: true
+    // autoPadding: true
+    // formatter: 'short',
+    // objectPrinter: (o: any) => inspect(o, { depth: 4, colors: true, breakLength: 100 })
   }
 };
 // LOGGER (E)
 
 const brokerConfig: BrokerOptions = {
-  namespace: '',
-  nodeID: `${nodeIDPrefix}-${osHostName}`,
+  namespace: process.env.NAMESPACE || '',
+  nodeID: `${osHostName}${nodeIDPrefix}`,
 
   logFormatter: 'full',
   logger,
@@ -199,7 +202,7 @@ const brokerConfig: BrokerOptions = {
   tracing,
 
   // Register custom middlewares
-  middlewares: [CreateHealthCheckMiddleware(healthCheckOpts)],
+  middlewares: [CreateHealthCheckMiddleware(healthCheckOpts), FindEntityMiddleware()],
 
   replCommands: null
 };

@@ -1,24 +1,37 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "module": "commonjs",
-    "target": "es6",
+    "target": "es2018",
     "allowJs": true,
-    "rootDir": "./",
     "noImplicitAny": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "sourceMap": false,
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
+      "core/*": ["core/*"],
       "utils/*": ["utils/*"],
       "mixins/*": ["mixins/*"],
+      "middlewares/*": ["middlewares/*"],
       "services/*": ["services/*"],
-      "tests/*": ["tests/*"]
+      "errors/*": ["errors/*"],
+      "models/*": ["models/*"],
+      "tests/*": ["tests/*"],
+      "core": ["core/index.ts"],
+      "utils": ["utils/index.ts"],
+      "mixins": ["mixins/index.ts"],
+      "middlewares": ["middlewares/index.ts"],
+      "services": ["services/index.ts"],
+      "errors": ["errors/index.ts"],
+      "models": ["models/index.ts"],
+      "tests": ["tests/index.ts"]
     },
-    "typeRoots": ["node_modules/@types", "node_modules/@app/types"],
+    "typeRoots": ["node_modules/@types", "@types"],
     "lib": [
       "es5",
       "es6",
@@ -31,8 +44,10 @@
       "es2015.reflect",
       "es2015.symbol",
       "es2015.symbol.wellknown",
+      "es2018",
       "esnext.asynciterable"
     ]
   },
-  "exclude": ["**/*.test.ts", "dist/**"]
+  // "include": ["**/*.spec.ts"],
+  "exclude": ["**/*.test.ts", "dist/**", "tests/**/*"]
 }

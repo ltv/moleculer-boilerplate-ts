@@ -1,0 +1,155 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Organization {
+  id          Int    @default(autoincrement()) @id
+  code        String @unique
+  name        String @unique
+  description String
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+}
+
+model User {
+  id        String  @id
+  username  String  @unique
+  email     String  @unique
+  name      String?
+  avatarUrl String?
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  profile         Profile[]
+  roles           UsersOnRoles[]
+  projects        ProjectsOnUsers[]
+  createdProjects Project[]
+}
+
+enum LanguageCode {
+  en
+  vi
+}
+
+model Profile {
+  id        String       @id
+  firstName String
+  lastName  String
+  language  LanguageCode @default(en)
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  user User @relation(fields: [id], references: [id])
+}
+
+enum RoleType {
+  SYSTEM
+  PROJECT
+}
+
+model Role {
+  id          Int      @default(autoincrement()) @id
+  name        String   @unique
+  type        RoleType @default(SYSTEM)
+  description String?
+  builtin     Boolean? @default(true)
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  users       UsersOnRoles[]
+  permissions RolesOnPermissions[]
+  projects    ProjectsOnRoles[]
+}
+
+model UsersOnRoles {
+  userId String
+  roleId Int
+
+  user User @relation(fields: [userId], references: [id])
+  role Role @relation(fields: [roleId], references: [id])
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  @@id([userId, roleId])
+}
+
+model Permission {
+  id          Int                  @default(autoincrement()) @id
+  name        String               @unique
+  description String?
+  builtin     Boolean?             @default(true)
+  roles       RolesOnPermissions[]
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+}
+
+model RolesOnPermissions {
+  roleId       Int
+  permissionId Int
+
+  role       Role       @relation(fields: [roleId], references: [id])
+  permission Permission @relation(fields: [permissionId], references: [id])
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  @@id([roleId, permissionId])
+}
+
+model Project {
+  id       Int      @default(autoincrement()) @id
+  code     String   @unique
+  name     String   @unique
+  body     String?
+  archived Boolean? @default(false)
+
+
+  createdBy String?
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  users   ProjectsOnUsers[]
+  roles   ProjectsOnRoles[]
+  creator User?             @relation(fields: [createdBy], references: [id])
+}
+
+model ProjectsOnUsers {
+  userId    String
+  projectId Int
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  user    User    @relation(fields: [userId], references: [id])
+  project Project @relation(fields: [projectId], references: [id])
+
+  @@id([userId, projectId])
+}
+
+model ProjectsOnRoles {
+  projectId Int
+  roleId    Int
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  project Project @relation(fields: [projectId], references: [id])
+  role    Role    @relation(fields: [roleId], references: [id])
+
+  @@id([projectId, roleId])
+}

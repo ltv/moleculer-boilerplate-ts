@@ -1,35 +1,30 @@
-import isString from 'lodash.isstring';
+import fs from 'fs';
 import { Kind } from 'graphql';
-import { ApolloService } from 'moleculer-apollo-server';
-import { isProd } from 'utils/environment';
+import isString from 'lodash.isstring';
+import { ApolloService, GraphQLUpload } from 'moleculer-apollo-server';
+import path from 'path';
+
+// const isProd = () => ['prod', 'production'].indexOf(process.env.NODE_ENV) != -1;
+
+const schema = fs.readFileSync(path.resolve('./graphql/schema.graphql'), {
+  encoding: 'utf8'
+});
 
 export const ApolloMixin = ApolloService({
   // Global GraphQL typeDefs
   typeDefs: `
     scalar Date
     scalar Timestamp
-
-    type PageInfo {
-      hasNextPage: Boolean!
-      hasPreviousPage: Boolean!
-      startCursor: String
-      endCursor: String
-    }
-
-    interface Response {
-      totalCount: Int
-      pageInfo: PageInfo
-    }
-
-    type BaseCounter {
-      completed: Int
-      progress: Int
-      total: Int
-    }
+    ${schema}
   `,
 
   // Global resolvers
   resolvers: {
+    Node: {
+      __resolveType(obj: any) {
+        return obj.__typename;
+      }
+    },
     Date: {
       __parseValue(value: any) {
         return new Date(value); // value from the client
@@ -55,23 +50,25 @@ export const ApolloMixin = ApolloService({
 
         return undefined;
       }
-    }
+    },
+    Upload: GraphQLUpload
   },
 
   routeOptions: {
     path: '/graphql',
-    // authentication: false,
     authentication: true,
     cors: true,
     mappingPolicy: 'restrict'
-  } as any,
+  },
 
   serverOptions: {
     playground: true,
     introspection: true,
-    tracing: isProd(),
+    tracing: true,
     engine: {
-      apiKey: process.env.APOLLO_ENGINE_KEY
-    }
+      apiKey: process.env.APOLLO_KEY,
+      reportSchema: true,
+      variant: 'current'
+    } as any
   }
 });
