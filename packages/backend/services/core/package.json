@@ -1,0 +1,7 @@
+{
+  "name": "@svc/core",
+  "version": "0.1.0",
+  "description": "core service",
+  "author": "Luc <luc@ltv.vn>",
+  "private": true
+}

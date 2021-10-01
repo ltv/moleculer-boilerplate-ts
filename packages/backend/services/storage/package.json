@@ -1,0 +1,10 @@
+{
+  "name": "@svc/storage",
+  "version": "0.1.0",
+  "description": "storage service",
+  "author": "Luc <luc@ltv.vn>",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "^2.997.0"
+  }
+}

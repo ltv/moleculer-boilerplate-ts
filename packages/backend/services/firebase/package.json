@@ -1,0 +1,10 @@
+{
+  "name": "@svc/firebase",
+  "version": "0.1.0",
+  "description": "firebase service",
+  "author": "Luc <luc@ltv.vn>",
+  "private": true,
+  "dependencies": {
+    "firebase-admin": "^9.12.0"
+  }
+}

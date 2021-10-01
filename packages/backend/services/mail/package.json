@@ -1,0 +1,7 @@
+{
+  "name": "@svc/mail",
+  "version": "0.1.0",
+  "description": "Mail service",
+  "author": "Luc <luc@ltv.vn>",
+  "private": true
+}

@@ -5,7 +5,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "module": "commonjs",
-    "target": "es2018",
+    "target": "es2019",
     "allowJs": true,
     "noImplicitAny": true,
     "moduleResolution": "node",
@@ -14,24 +14,10 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "core/*": ["core/*"],
-      "utils/*": ["utils/*"],
-      "mixins/*": ["mixins/*"],
-      "middlewares/*": ["middlewares/*"],
-      "services/*": ["services/*"],
-      "errors/*": ["errors/*"],
-      "models/*": ["models/*"],
-      "tests/*": ["tests/*"],
-      "core": ["core/index.ts"],
-      "utils": ["utils/index.ts"],
-      "mixins": ["mixins/index.ts"],
-      "middlewares": ["middlewares/index.ts"],
-      "services": ["services/index.ts"],
-      "errors": ["errors/index.ts"],
-      "models": ["models/index.ts"],
-      "tests": ["tests/index.ts"]
+      "shared/*": ["shared/*"],
+      "services/*": ["services/*"]
     },
-    "typeRoots": ["node_modules/@types", "@types"],
+    "typeRoots": ["../../node_modules/@types", "node_modules/@types", "shared/@types"],
     "lib": [
       "es5",
       "es6",
@@ -45,9 +31,12 @@
       "es2015.symbol",
       "es2015.symbol.wellknown",
       "es2018",
+      "es2020",
       "esnext.asynciterable"
     ]
   },
-  // "include": ["**/*.spec.ts"],
-  "exclude": ["**/*.test.ts", "dist/**", "tests/**/*"]
+  "exclude": ["**/*.test.ts", "dist/**", "tests/**/*"],
+  "ts-node": {
+    "files": true
+  },
 }

@@ -1,0 +1,12 @@
+{
+  "name": "@svc/api-gateway",
+  "version": "0.1.0",
+  "description": "API Gateway",
+  "author": "Luc <luc@ltv.vn>",
+  "private": true,
+  "dependencies": {
+    "firebase-admin": "^9.12.0",
+    "moleculer-apollo-server": "^0.3.4",
+    "moleculer-web": "^0.10.2"
+  }
+}
