@@ -34,13 +34,15 @@ function getEntries({ config }) {
         name: `${svc}/services/${filename}`,
         path: `./${file}`,
         cfg: `${svc}/${config.key}`,
+        gql: `${svc}/tools/generate-graphql`,
       }
     })
     .reduce(
-      (memo, { name, path, cfg }) => ({
+      (memo, { name, path, cfg, gql }) => ({
         ...memo,
         [name]: path,
         [cfg]: config.path,
+        [gql]: 'tools/generate-graphql.ts',
       }),
       {},
     )
@@ -110,10 +112,14 @@ console.time('Build Production')
       ...uniqServices.map((svc) => {
         const svcPkg = require(`./services/${svc}/package.json`)
         svcPkg.dependencies = merge(svcPkg.dependencies, pkg.dependencies)
+        svcPkg.scripts = {
+          prestart: 'node tools/generate-graphql.js && npx prisma generate',
+          start: 'moleculer-runner --repl --mask *.svc.js --config moleculer.config.js services',
+        }
         return writeFileSync(`${svc}/package.json`, svcPkg)
       }),
       ...uniqServices.map((svc) =>
-        copyFileAsync('graphql/schema.graphql', `${svc}/graphql/schema.graphql`),
+        copyFileAsync('shared/prisma/schema.prisma', `${svc}/prisma/schema.prisma`),
       ),
     ])
   } catch (e) {

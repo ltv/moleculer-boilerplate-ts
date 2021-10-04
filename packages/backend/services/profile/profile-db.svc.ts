@@ -1,6 +1,7 @@
 import { Prisma } from '.prisma/client'
 import { GlobalReject } from '@prisma/client'
-import { Service } from 'moleculer-decorators'
+import { Context } from 'moleculer'
+import { Action, Service } from 'moleculer-decorators'
 import { PrismaService } from 'shared/core/prisma.svc'
 import { PrismaMixin } from 'shared/mixins/prisma.mixin'
 
@@ -15,4 +16,11 @@ type ModelDelegate = Prisma.ProfileDelegate<GlobalReject>
     }),
   ],
 })
-export default class ProfileDbService extends PrismaService<ModelDelegate> {}
+export default class ProfileDbService extends PrismaService<ModelDelegate> {
+  @Action({
+    name: 'changePassword',
+  })
+  changePassword(ctx: Context) {
+    ctx.emit('auth.passwordChanged', ':)')
+  }
+}

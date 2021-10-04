@@ -1,7 +1,0 @@
-{
-  "name": "@svc/hello",
-  "version": "0.1.0",
-  "description": "Moleculer boilerplate backend",
-  "author": "Luc <luc@ltv.vn>",
-  "private": true
-}
